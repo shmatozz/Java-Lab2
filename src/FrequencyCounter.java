@@ -1,25 +1,41 @@
+import Exceptions.EmptyFileException;
+
 import java.io.*;
 import java.util.HashMap;
 import java.util.Scanner;
 
 public class FrequencyCounter {
-    private final String fileIn;
-    private final String fileOut;
-    private final HashMap<Character, Integer> frequency = new HashMap<>();
+    private final String fileIn;    // Поле для пути файла ввода
+    private final String fileOut;   // Поле для пути файла выводы
+    private final HashMap<Character, Integer> frequency = new HashMap<>();  // Хэшмэп для хранения частоты вхождения каждого символа
 
+    /**
+     * Конструктор по умолчанию
+     */
     FrequencyCounter() {
-        this("C:\\Users\\matve\\IdeaProjects\\Lab2\\files\\in.txt",
-                "C:\\Users\\matve\\IdeaProjects\\Lab2\\files\\out.txt");
+        this("files\\in.txt",
+                "files\\out.txt");
     }
 
+    /**
+     * Конструктор с параметрами
+     * @param fileIn путь файла ввода
+     * @param fileOut путь файла вывода
+     */
     FrequencyCounter(String fileIn, String fileOut) {
         this.fileIn = fileIn; this.fileOut = fileOut;
     }
 
-    public void countFrequency() {
+    /**
+     * Подсчёт количества вхождений
+     * @throws EmptyFileException если файл ввода пустой
+     * @throws FileNotFoundException если данного файла ввода не существует
+     */
+    public void countFrequency() throws EmptyFileException {
         try {
             File input = new File(fileIn);
             Scanner sc = new Scanner(input);
+            if (!sc.hasNext() && frequency.isEmpty()) throw new EmptyFileException("Your file is empty!");
             while (sc.hasNext()) {
                 String line = sc.nextLine();
                 for (int i = 0; i < line.length(); i++) {
@@ -27,20 +43,32 @@ public class FrequencyCounter {
                 }
             }
         } catch (FileNotFoundException e) {
-            System.out.println("File " + fileIn + "not found");
+            System.out.println("File " + fileIn + " not found");
             throw new RuntimeException(e);
+        } catch (EmptyFileException e) {
+            throw new EmptyFileException("Your file is empty!");
         }
 
         output();
     }
 
+    /**
+     * Вывод количества вхождений в файл вывода
+     */
     private void output() {
-        try (PrintStream out = new PrintStream(fileOut)) {
+        try (FileWriter out = new FileWriter(fileOut);) {
             frequency.forEach(
-                    (key, value) -> out.println(key + " - " + value)
+                    (key, value) -> {
+                        try {
+                            out.write((key + " - " + value + '\n'));
+                        } catch (IOException e) {
+                            throw new RuntimeException(e);
+                        }
+                    }
             );
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
 }
+
