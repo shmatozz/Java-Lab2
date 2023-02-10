@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9e5999f9-e098-4ea5-8837-cf6273697c44" name="Changes" comment="working sample complete">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Exceptions/EmptyFileException.java" afterDir="false" />
+    <list default="true" id="9e5999f9-e098-4ea5-8837-cf6273697c44" name="Changes" comment="add EmptyFileException, write some comments">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/files/in.txt" beforeDir="false" afterPath="$PROJECT_DIR$/files/in.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/files/out.txt" beforeDir="false" afterPath="$PROJECT_DIR$/files/out.txt" afterDir="false" />
@@ -40,7 +38,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/matve/IdeaProjects/JavaLabs",
+    "last_opened_file_path": "C:/Users/matve/IdeaProjects/test",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -78,7 +76,8 @@
       <workItem from="1675970342253" duration="3000" />
       <workItem from="1675970451737" duration="7000" />
       <workItem from="1675971899732" duration="75000" />
-      <workItem from="1676022662333" duration="3191000" />
+      <workItem from="1676022662333" duration="3476000" />
+      <workItem from="1676040885980" duration="875000" />
     </task>
     <task id="LOCAL-00001" summary="working sample complete">
       <created>1675954612651</created>
@@ -87,7 +86,14 @@
       <option name="project" value="LOCAL" />
       <updated>1675954612651</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="add EmptyFileException, write some comments">
+      <created>1676025940749</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1676025940749</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -95,7 +101,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="working sample complete" />
-    <option name="LAST_COMMIT_MESSAGE" value="working sample complete" />
+    <MESSAGE value="add EmptyFileException, write some comments" />
+    <option name="LAST_COMMIT_MESSAGE" value="add EmptyFileException, write some comments" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

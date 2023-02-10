@@ -13,8 +13,7 @@ public class FrequencyCounter {
      * Конструктор по умолчанию
      */
     FrequencyCounter() {
-        this("files\\in.txt",
-                "files\\out.txt");
+        this("files\\in.txt", "files\\out.txt");
     }
 
     /**
@@ -29,13 +28,13 @@ public class FrequencyCounter {
     /**
      * Подсчёт количества вхождений
      * @throws EmptyFileException если файл ввода пустой
-     * @throws FileNotFoundException если данного файла ввода не существует
+     * @throws RuntimeException если данного файла ввода не существует
      */
     public void countFrequency() throws EmptyFileException {
         try {
             File input = new File(fileIn);
             Scanner sc = new Scanner(input);
-            if (!sc.hasNext() && frequency.isEmpty()) throw new EmptyFileException("Your file is empty!");
+            if (!sc.hasNext() && frequency.isEmpty()) throw new EmptyFileException("Your file is empty!"); // выбрасываем исключение если файл пустой
             while (sc.hasNext()) {
                 String line = sc.nextLine();
                 for (int i = 0; i < line.length(); i++) {
@@ -49,18 +48,18 @@ public class FrequencyCounter {
             throw new EmptyFileException("Your file is empty!");
         }
 
-        output();
+        output();   // вызов функции вывода результатов посчёта в файл
     }
 
     /**
      * Вывод количества вхождений в файл вывода
      */
     private void output() {
-        try (FileWriter out = new FileWriter(fileOut);) {
+        try (FileWriter out = new FileWriter(fileOut)) {
             frequency.forEach(
                     (key, value) -> {
                         try {
-                            out.write((key + " - " + value + '\n'));
+                            out.write(key + " - " + value + '\n');
                         } catch (IOException e) {
                             throw new RuntimeException(e);
                         }
